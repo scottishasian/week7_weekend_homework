@@ -13,11 +13,13 @@ import static junit.framework.Assert.assertNotNull;
 public class EnclosureTest {
 
     Cassowray cassowray;
-    Enclosure enclosure;
+    Capybara capybara;
+    Enclosure<Cassowray> enclosure;
 
     @Before
     public void before() {
         cassowray = new Cassowray("Jeff", 4000);
+        capybara = new Capybara("Olive", 2000);
         enclosure = new Enclosure();
     }
 
@@ -32,11 +34,22 @@ public class EnclosureTest {
         assertEquals(1, enclosure.animalCount());
     }
 
+//    @Test
+//    public void testCanAddAnimalFail() {
+//        this.enclosure.addAnimal(capybara);
+//        assertEquals(0, enclosure.animalCount());
+//    }
+
     @Test
     public void testCanRemoveAnimal() {
         enclosure.addAnimal(cassowray);
         assertEquals(1, enclosure.animalCount());
         enclosure.removeAnimal(cassowray);
         assertEquals(0, enclosure.animalCount());
+    }
+
+    @Test
+    public void testCanGetEnclosureList() {
+
     }
 }
