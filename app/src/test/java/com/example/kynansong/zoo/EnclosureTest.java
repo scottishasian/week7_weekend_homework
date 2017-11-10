@@ -12,15 +12,20 @@ import static junit.framework.Assert.assertNotNull;
 
 public class EnclosureTest {
 
-    Cassowray cassowray;
+    Cassowray cassowray, cassowray2, cassowray3;
     Capybara capybara;
+    ShoebillStork shoebillStork;
     Enclosure<Cassowray> enclosure;
+    Enclosure<ShoebillStork> enclosure2;
 
     @Before
     public void before() {
         cassowray = new Cassowray("Jeff", 4000);
+        cassowray2 = new Cassowray("Fiona", 6000);
+        cassowray3 = new Cassowray("Ragnar", 2000);
         capybara = new Capybara("Olive", 2000);
         enclosure = new Enclosure();
+        enclosure2 = new Enclosure();
     }
 
     @Test
@@ -29,8 +34,13 @@ public class EnclosureTest {
     }
 
     @Test
-    public void testCanAddAnimal() {
+    public void testCanAddAnimalCassowray() {
         enclosure.addAnimal(cassowray);
+        assertEquals(1, enclosure.animalCount());
+
+    }@Test
+    public void testCanAddAnimalShoebill() {
+        enclosure2.addAnimal(shoebillStork);
         assertEquals(1, enclosure.animalCount());
     }
 
@@ -50,6 +60,16 @@ public class EnclosureTest {
 
     @Test
     public void testCanGetEnclosureList() {
+
+    }
+
+    @Test
+    public void testAnimalCashValueCassowray() {
+        enclosure.addAnimal(cassowray);
+        enclosure.addAnimal(cassowray2);
+        enclosure.addAnimal(cassowray3);
+        assertEquals(3, enclosure.animalCount());
+        assertEquals(12000, enclosure.totalEnclosureValue(), 0.01);
 
     }
 }

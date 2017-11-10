@@ -26,4 +26,12 @@ public class Enclosure<T extends Animals> { //To only accept objects related to 
     public void removeAnimal(T animal) {
         this.animalType.remove(animal);
     }
+
+    public double totalEnclosureValue() {
+        double total = 0;
+        for(T animals : animalType) {
+            total += animals.getAnimalValue();
+        }
+        return total;
+    }
 }
