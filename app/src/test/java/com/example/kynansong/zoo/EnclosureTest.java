@@ -72,4 +72,14 @@ public class EnclosureTest {
         assertEquals(12000, enclosure.totalEnclosureValue(), 0.01);
 
     }
+
+    @Test
+    public void testCanFindAnimalByName() {
+        enclosure.addAnimal(cassowray);
+        enclosure.addAnimal(cassowray2);
+        enclosure.addAnimal(cassowray3);
+        assertEquals(3, enclosure.animalCount());
+        assertEquals(this.cassowray2, enclosure.getAnimalByName("Fiona"));
+
+    }
 }

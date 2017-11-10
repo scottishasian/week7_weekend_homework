@@ -44,4 +44,11 @@ public class Zoo<E extends Enclosure> {
         }
         return total;
     }
+
+//    public double sellAnimal(String name) {
+//        for(E enclosure : cages) {
+//            if (enclosure.getAnimalName())
+//        }
+//        return this.funds;
+//    }
 }
