@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by kynansong on 10/11/2017.
  */
 
-public class Zoo<E> {
+public class Zoo<E extends Enclosure> {
 
     private ArrayList<E> cages;
     private double funds;
@@ -26,5 +26,22 @@ public class Zoo<E> {
 
     public void removeEnclosure(E Enclosure) {
         this.cages.remove(Enclosure);
+    }
+
+    public double totalAnimalCashValue() {
+        double total = 0;
+        for(E enclosure : cages) {
+            total += enclosure.totalEnclosureValue();
+        }
+        return total;
+    }
+
+
+    public int totalAnimals() {
+        int total = 0;
+        for(E enclosure : cages) {
+            total += enclosure.animalCount();
+        }
+        return total;
     }
 }

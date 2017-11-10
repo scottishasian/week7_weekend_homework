@@ -6,7 +6,7 @@ package com.example.kynansong.zoo;
 
 import java.util.ArrayList;
 
-public class Enclosure<T extends Animals> { //To only accept objects related to Animals.
+public class Enclosure<T extends Animal> { //To only accept objects related to Animal.
 
     ArrayList<T> animalType;
 

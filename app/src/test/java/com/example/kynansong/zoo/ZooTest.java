@@ -46,8 +46,35 @@ public class ZooTest {
     @Test
     public void testRemoveEnclosure() {
         zoo.addEnclosure(enclosure);
-        assertEquals(0, zoo.enclosureCount());
+        assertEquals(1, zoo.enclosureCount());
         zoo.removeEnclosure(enclosure);
         assertEquals(0, zoo.enclosureCount());
+    }
+
+    @Test
+    public void testCanGetTotalAnimalCashValue() {
+        zoo.addEnclosure(enclosure);
+        zoo.addEnclosure(enclosure2);
+        zoo.addEnclosure(enclosure3);
+        enclosure.addAnimal(cassowray);
+        enclosure.addAnimal(cassowray2);
+        enclosure2.addAnimal(capybara);
+        enclosure3.addAnimal(shoebillStork);
+        enclosure3.addAnimal(shoebillStork2);
+        assertEquals(17902.10, zoo.totalAnimalCashValue(), 0.01);
+    }
+
+    @Test
+    public void testCanCountAnimals() {
+        zoo.addEnclosure(enclosure);
+        zoo.addEnclosure(enclosure2);
+        zoo.addEnclosure(enclosure3);
+        enclosure.addAnimal(cassowray);
+        enclosure.addAnimal(cassowray2);
+        enclosure2.addAnimal(capybara);
+        enclosure3.addAnimal(shoebillStork);
+        enclosure3.addAnimal(shoebillStork2);
+        assertEquals(5, zoo.totalAnimals());
+
     }
 }
