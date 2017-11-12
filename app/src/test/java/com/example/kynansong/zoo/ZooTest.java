@@ -38,6 +38,11 @@ public class ZooTest {
     }
 
     @Test
+    public void testCanGetTicketPrice() {
+        assertEquals(5.99, zoo.getTicketPrice());
+    }
+
+    @Test
     public void testAddEnclosure() {
         zoo.addEnclosure(enclosure);
         assertEquals(1, zoo.enclosureCount());
@@ -83,21 +88,21 @@ public class ZooTest {
         assertEquals(0, zoo.getFunds(), 0.01);
     }
 
-    @Test
-    public void testCanSellAnimals() {
-        zoo.addEnclosure(enclosure);
-        zoo.addEnclosure(enclosure2);
-        zoo.addEnclosure(enclosure3);
-        enclosure.addAnimal(cassowray);
-        enclosure.addAnimal(cassowray2);
-        enclosure2.addAnimal(capybara);
-        enclosure3.addAnimal(shoebillStork);
-        enclosure3.addAnimal(shoebillStork2);
-        assertEquals(17902.10, zoo.totalAnimalCashValue(), 0.01);
-        zoo.sellAnimal("Olive");
-        assertEquals(4, zoo.totalAnimals());
-        assertEquals(14501.20, zoo.totalAnimalCashValue(), 0.01);
-        assertEquals(3400.90, zoo.getFunds());
-
-    }
+//    @Test
+//    public void testCanSellAnimals() {
+//        zoo.addEnclosure(enclosure);
+//        zoo.addEnclosure(enclosure2);
+//        zoo.addEnclosure(enclosure3);
+//        enclosure.addAnimal(cassowray);
+//        enclosure.addAnimal(cassowray2);
+//        enclosure2.addAnimal(capybara);
+//        enclosure3.addAnimal(shoebillStork);
+//        enclosure3.addAnimal(shoebillStork2);
+//        assertEquals(17902.10, zoo.totalAnimalCashValue(), 0.01);
+//        zoo.sellAnimal("Olive");
+//        assertEquals(4, zoo.totalAnimals());
+//        assertEquals(14501.20, zoo.totalAnimalCashValue(), 0.01);
+//        assertEquals(3400.90, zoo.getFunds());
+//
+//    }
 }
