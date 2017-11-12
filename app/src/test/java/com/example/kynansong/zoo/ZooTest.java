@@ -12,6 +12,7 @@ import static junit.framework.Assert.assertNotNull;
 public class ZooTest {
 
     Zoo zoo;
+    Visitor visitor;
     Enclosure<Cassowray> enclosure;
     Enclosure<Capybara> enclosure2;
     Enclosure<ShoebillStork> enclosure3;
@@ -22,6 +23,7 @@ public class ZooTest {
     @Before
     public void before() {
         zoo = new Zoo();
+        visitor = new Visitor("Shonna", 40.50);
         enclosure = new Enclosure();
         enclosure2 = new Enclosure();
         enclosure3 = new Enclosure();
@@ -39,7 +41,7 @@ public class ZooTest {
 
     @Test
     public void testCanGetTicketPrice() {
-        assertEquals(5.99, zoo.getTicketPrice());
+        assertEquals(5.99, zoo.getTicketPrice(5.99));
     }
 
     @Test
@@ -86,6 +88,20 @@ public class ZooTest {
     @Test
     public void testCanGetFunds() {
         assertEquals(0, zoo.getFunds(), 0.01);
+    }
+
+    @Test
+    public void testHasNoVisitors() {
+        assertEquals(0, zoo.visitorCount());
+    }
+
+    @Test
+    public void testZooHasAVisitor() {
+        zoo.visitorBuysTicket(visitor, 5.99);
+        assertEquals(5.99, zoo.getFunds(), 0.01);
+        assertEquals(34.51, visitor.getCash(), 0.01);
+        assertEquals(1, visitor.ticketCount());
+
     }
 
 //    @Test

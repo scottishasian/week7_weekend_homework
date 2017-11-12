@@ -29,4 +29,16 @@ public class VisitorTest {
     public void testCanGetCash() {
         assertEquals(40.50, visitor.getCash());
     }
+
+    @Test
+    public void testVisitorHasNoTicket() {
+        assertEquals(0, visitor.ticketCount());
+    }
+
+    @Test
+    public void testCanBuyTicket() {
+        visitor.canBuyTicket(5.99);
+        assertEquals(34.51, visitor.getCash(), 0.01);
+        assertEquals(1, visitor.ticketCount());
+    }
 }

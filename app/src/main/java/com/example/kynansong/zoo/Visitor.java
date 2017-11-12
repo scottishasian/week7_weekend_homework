@@ -24,7 +24,13 @@ public class Visitor {
         return this.cash;
     }
 
-//    public int canBuyTicket() {
-//
-//    }
+    public void canBuyTicket(double ticketPrice) {
+        this.cash -= ticketPrice;
+        this.ticket += 1;
+
+    }
+
+    public int ticketCount() {
+        return this.ticket;
+    }
 }

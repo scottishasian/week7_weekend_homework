@@ -9,13 +9,15 @@ import java.util.ArrayList;
 public class Zoo<E extends Enclosure> {
 
     private ArrayList<E> cages;
+    private ArrayList<Visitor> visitors;
     private double funds;
     private double ticketPrice;
 
     public Zoo(){
         this.cages = new ArrayList();
+        this.visitors = new ArrayList();
         this.funds = 0;
-        this.ticketPrice = 5.99;
+        this.ticketPrice = ticketPrice;
     }
 
     public int enclosureCount() {
@@ -26,8 +28,8 @@ public class Zoo<E extends Enclosure> {
         this.cages.add(Enclosure);
     }
 
-    public double getTicketPrice() {
-        return this.ticketPrice;
+    public double getTicketPrice(double cost) {
+        return this.ticketPrice += cost;
     }
 
     public void removeEnclosure(E Enclosure) {
@@ -55,15 +57,26 @@ public class Zoo<E extends Enclosure> {
         return this.funds;
     }
 
-//    public double sellAnimal(String name) {  //Can remove animal, need to add sale funds.
-//        for(E enclosure : cages) {
-//            Animal animal = enclosure.getAnimalByName(name);
-//            this.funds += animal.getAnimalValue();
-//            //Write a method to draw funds from animal in enclosure then call here.
-//            enclosure.removeAnimal(enclosure.getAnimalByName(name));
-//        }
-//        return this.funds;
-//    }
+    public int visitorCount() {
+        return visitors.size();
+    }
+
+    public void visitorBuysTicket(Visitor visitor, double ticketPrice) {
+        this.visitors.add(visitor);
+        this.funds += ticketPrice;
+        visitor.cash -= ticketPrice;
+        visitor.ticket += 1;
+    }
+
+    public double sellAnimal(String name) {  //Can remove animal, need to add sale funds.
+        for(E enclosure : cages) {
+            Animal animal = enclosure.getAnimalByName(name);
+            this.funds += animal.getAnimalValue();
+            //Write a method to draw funds from animal in enclosure then call here.
+            enclosure.removeAnimal(enclosure.getAnimalByName(name));
+        }
+        return this.funds;
+    }
 
 
 
