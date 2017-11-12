@@ -64,18 +64,28 @@ public class Zoo<E extends Enclosure> {
     public void visitorBuysTicket(Visitor visitor, double ticketPrice) {
         this.visitors.add(visitor);
         this.funds += ticketPrice;
-        visitor.cash -= ticketPrice;
-        visitor.ticket += 1;
+        visitor.canBuyTicket(ticketPrice);
     }
 
-    public double sellAnimal(String name) {  //Can remove animal, need to add sale funds.
-        for(E enclosure : cages) {
-            Animal animal = enclosure.getAnimalByName(name);
-            this.funds += animal.getAnimalValue();
-            //Write a method to draw funds from animal in enclosure then call here.
-            enclosure.removeAnimal(enclosure.getAnimalByName(name));
+//    public double sellAnimal(String name) {  //Can remove animal, need to add sale funds.
+//        for(E enclosure : cages) {
+//            Animal animal = enclosure.getAnimalByName(name);
+//            this.funds += animal.getAnimalValue();
+//            //Write a method to draw funds from animal in enclosure then call here.
+//            enclosure.removeAnimal(enclosure.getAnimalByName(name));
+//        }
+//        return this.funds;
+//    }
+
+    public double sellAnimal(Animal animal) {  //Can remove animal, need to add sale funds.
+        double sale = 0;
+        for(E enclosure : cages){
+            if(enclosure.enclosureHasAnimal(animal) == true) {
+                sale += animal.getAnimalValue();
+                enclosure.removeAnimal(animal);
+            }
         }
-        return this.funds;
+        return this.funds += sale;
     }
 
 

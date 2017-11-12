@@ -82,4 +82,14 @@ public class EnclosureTest {
         assertEquals(this.cassowray2, enclosure.getAnimalByName("Fiona"));
 
     }
+
+    @Test
+    public void testEnclosureHasAnimalTrue() {
+        enclosure.addAnimal(cassowray);
+        enclosure.addAnimal(cassowray2);
+        enclosure.addAnimal(cassowray3);
+        assertEquals(true, enclosure.enclosureHasAnimal(cassowray2));
+    }
+
+
 }

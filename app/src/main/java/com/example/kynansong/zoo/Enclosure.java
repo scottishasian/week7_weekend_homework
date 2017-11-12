@@ -35,6 +35,13 @@ public class Enclosure<T extends Animal> { //To only accept objects related to A
         return total;
     }
 
+    public boolean enclosureHasAnimal(T animal) {
+        if(animalType.contains(animal)) {
+            return true;
+        }
+        return false;
+    }
+
     public T getAnimalByName(String name) {
         for(T animal : animalType){
             if(animal.getAnimalName() == name) {
