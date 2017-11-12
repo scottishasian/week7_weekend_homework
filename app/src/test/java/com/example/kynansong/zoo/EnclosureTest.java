@@ -41,11 +41,11 @@ public class EnclosureTest {
     }@Test
     public void testCanAddAnimalShoebill() {
         enclosure2.addAnimal(shoebillStork);
-        assertEquals(1, enclosure.animalCount());
+        assertEquals(1, enclosure2.animalCount());
     }
-
+//
 //    @Test
-//    public void testCanAddAnimalFail() {
+//    public void testCanAddAnimalFail() {              //Testing to see if a different animal type can be added to an enclosure.
 //        this.enclosure.addAnimal(capybara);
 //        assertEquals(0, enclosure.animalCount());
 //    }

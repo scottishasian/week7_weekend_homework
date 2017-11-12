@@ -45,10 +45,20 @@ public class Zoo<E extends Enclosure> {
         return total;
     }
 
-//    public double sellAnimal(String name) {
-//        for(E enclosure : cages) {
-//            if (enclosure.getAnimalName())
-//        }
-//        return this.funds;
-//    }
+    public double getFunds() {
+        return this.funds;
+    }
+
+    public double sellAnimal(String name) {  //Can remove animal, need to add sale funds.
+        double sale = 0;
+        for(E enclosure : cages) {
+            enclosure.getAnimalByName(name);
+            enclosure.removeAnimal(enclosure.getAnimalByName(name));
+            this.funds += sale;
+        }
+        return this.funds;
+    }
+
+
+
 }
