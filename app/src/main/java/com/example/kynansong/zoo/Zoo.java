@@ -28,8 +28,8 @@ public class Zoo<E extends Enclosure> {
         this.cages.add(Enclosure);
     }
 
-    public double getTicketPrice(double cost) {
-        return this.ticketPrice += cost;
+    public double setTicketPrice(double cost) {
+        return this.ticketPrice = cost;
     }
 
     public void removeEnclosure(E Enclosure) {
@@ -61,7 +61,7 @@ public class Zoo<E extends Enclosure> {
         return visitors.size();
     }
 
-    public void visitorBuysTicket(Visitor visitor, double ticketPrice) {
+    public void visitorBuysTicket(Visitor visitor) {
         this.visitors.add(visitor);
         this.funds += ticketPrice;
         visitor.canBuyTicket(ticketPrice);

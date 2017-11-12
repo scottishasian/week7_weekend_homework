@@ -40,8 +40,8 @@ public class ZooTest {
     }
 
     @Test
-    public void testCanGetTicketPrice() {
-        assertEquals(5.99, zoo.getTicketPrice(5.99));
+    public void testCanSetTicketPrice() {
+        assertEquals(5.99, zoo.setTicketPrice(5.99));
     }
 
     @Test
@@ -97,7 +97,8 @@ public class ZooTest {
 
     @Test
     public void testZooHasAVisitor() {
-        zoo.visitorBuysTicket(visitor, 5.99);
+        zoo.setTicketPrice(5.99);
+        zoo.visitorBuysTicket(visitor);
         assertEquals(1, zoo.visitorCount());
         assertEquals(5.99, zoo.getFunds(), 0.01);
         assertEquals(34.51, visitor.getCash(), 0.01);
@@ -119,7 +120,7 @@ public class ZooTest {
         zoo.sellAnimal(capybara);
         assertEquals(4, zoo.totalAnimals());
         assertEquals(14501.20, zoo.totalAnimalCashValue(), 0.01);
-        assertEquals(3400.90, zoo.getFunds());
+        assertEquals(3400.90, zoo.getFunds(), 0.01);
 
     }
 }

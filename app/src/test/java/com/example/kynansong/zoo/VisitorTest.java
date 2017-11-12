@@ -37,7 +37,8 @@ public class VisitorTest {
 
     @Test
     public void testCanBuyTicket() {
-        visitor.canBuyTicket(5.99);
+        double cost = zoo.setTicketPrice(5.99);
+        visitor.canBuyTicket(cost);
         assertEquals(34.51, visitor.getCash(), 0.01);
         assertEquals(1, visitor.ticketCount());
     }
